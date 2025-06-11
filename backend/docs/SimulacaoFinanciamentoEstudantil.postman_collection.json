@@ -1,0 +1,179 @@
+{
+  "info": {
+    "name": "API de Simula\u00e7\u00e3o de Financiamento Estudantil",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Autentica\u00e7\u00e3o",
+      "item": [
+        {
+          "name": "Registrar estudante",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/register",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "register"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Jo\\u00e3o\",\n  \"sobrenome\": \"Silva\",\n  \"email\": \"joao.silva@example.com\",\n  \"senha\": \"senha123\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Login estudante",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/login",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "login"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"joao.silva@example.com\",\n  \"senha\": \"senha123\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Estudante",
+      "item": [
+        {
+          "name": "Obter meus dados",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/me",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "me"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Atualizar meus dados",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/me",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "me"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Jo\\u00e3o\",\n  \"sobrenome\": \"Silva\",\n  \"email\": \"joao.novo@example.com\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Simula\u00e7\u00f5es",
+      "item": [
+        {
+          "name": "Criar simula\u00e7\u00e3o",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/simulations",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "simulations"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"valor_total\": 50000,\n  \"quantidade_parcelas\": 12,\n  \"juros_ao_mes\": 0.02\n}"
+            }
+          }
+        },
+        {
+          "name": "Listar simula\u00e7\u00f5es",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/simulations",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "simulations"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

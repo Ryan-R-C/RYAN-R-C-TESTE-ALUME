@@ -1,0 +1,15 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysql_${DATABASE_DATABASE}
+    restart: always
+    command: --lower_case_table_names=1
+    environment:
+      MYSQL_DATABASE: ${DATABASE_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${DATABASE_PASSWORD}
+      TZ: 'America/Sao_Paulo'
+    ports:
+      - '${DATABASE_PORT}:3306'
+    expose:
+      - '${DATABASE_PORT}'
