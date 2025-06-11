@@ -28,7 +28,7 @@ export function useSimulationsWithFilters(options: UseSimulationsWithFiltersOpti
   const limit = options.limit;
 
   useEffect(() => {
-    if (token && token !== 'null') {
+    if (token) {
       inserToken(token);
 
       fetchSimulations({

@@ -24,7 +24,7 @@ const Login: React.FC = () => {
       setTimeout(() => {
         setLoading(false);
         navigate('/app', { state: { token } });
-      }, 5 * 1000);
+      }, 2 * 1000);
     } catch (err) {
       setLoading(false);
       console.error(err);
