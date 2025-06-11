@@ -1,8 +1,7 @@
 import { createContext, useState, useEffect, type ReactNode } from 'react';
-import axios from 'axios';
-import api from '../services/api';
 import { loginRequest, getProfileRequest, updateProfileRequest } from '../services/authService';
 import type { ProfileData } from '../types/authTypes';
+import { inserToken } from '../utils/inserToken';
 
 interface AuthContextData {
   token: string | null;
@@ -24,8 +23,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     if (token) {
-      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-      api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+      inserToken(token);
     }
   }, [token]);
 
@@ -46,8 +44,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const logout = () => {
-    localStorage.removeItem('token');
     setToken(null);
+    localStorage.removeItem('token');
   };
   
   return (

@@ -2,6 +2,7 @@ import { useEffect, useState, useContext } from 'react';
 import { fetchSimulations } from '../services/simulationService';
 import type { Simulation } from '../types/simulationTypes';
 import { AuthContext } from '../contexts/AuthContext';
+import { inserToken } from '../utils/inserToken';
 
 const initialFilters = {
   valor_total: '',
@@ -27,7 +28,9 @@ export function useSimulationsWithFilters(options: UseSimulationsWithFiltersOpti
   const limit = options.limit;
 
   useEffect(() => {
-    if (token) {
+    if (token && token !== 'null') {
+      inserToken(token);
+
       fetchSimulations({
         ...filters,
         page,
