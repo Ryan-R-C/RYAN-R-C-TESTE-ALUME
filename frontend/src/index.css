@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@theme {
+    --color-primary: #00dcc0; 
+    --color-primary-dark: #007681; 
+    --color-secondary: #004852; 
+    --color-background: #f2fdff; 
+}
+
+@layer components {
+    .input {
+        @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
+    }
+
+    .button {
+        @apply bg-primary hover:bg-primary-dark w-full text-white font-bold py-2 px-4 rounded cursor-pointer;
+    }
+    
+    .button-outline {
+        @apply border border-primary text-primary w-full font-bold py-2 px-4 rounded cursor-pointer;
+    }
+
+    .page_title {
+        @apply text-2xl text-secondary font-bold;
+    }
+
+    .page_subtitle {
+        @apply text-xl text-secondary font-bold;
+    }
+
+    .card{
+        @apply bg-white p-6 rounded-lg shadow-md w-full max-w-sm flex flex-col items-center gap-4;
+    }
+}
+
+body {
+    background-color: var(--color-background);
+}
