@@ -1,4 +1,4 @@
-# Pleno Fullstack Challenge - Frontend
+# Simulação de Financiamento Estudantil
 
 Este projeto é o frontend de um desafio fullstack, desenvolvido com React, TypeScript e Vite.
 
